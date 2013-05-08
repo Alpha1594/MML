@@ -1,0 +1,19 @@
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\bin\Debug\MML.exe
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\bin\Debug\MML.pdb
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\MML.Form1.resources
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\MML.Properties.Resources.resources
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\MML.exe
+C:\Users\A.2\AppData\Local\Temporary Projects\MML\obj\x86\Debug\MML.pdb
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\MML.exe
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\MML.pdb
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\bin\Debug\MML.exe
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\bin\Debug\MML.pdb
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\MML.Form1.resources
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\MML.Properties.Resources.resources
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\A.2\documents\visual studio 2010\Projects\MML\MML\obj\x86\Debug\MML.Test.resources
