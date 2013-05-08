@@ -1,1 +1,4 @@
 If you are reading this, then github has started working.
+
+This is an attempt at a Meme Markup Language.
+This will contain a proposed syntax structure and an implemenation of a parser written in C#
