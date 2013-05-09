@@ -44,11 +44,6 @@ namespace MML
                 MType = tbInput.Text.Substring(0, FirstDelimiterIndex);		// The Meme
                 Raw = tbInput.Text.Substring(1 + FirstDelimiterIndex);		// The captions
                 strArray = Raw.Split("|".ToCharArray());					// Text written to array.
-                /* foreach ( string str in strArray ) */
-                /* { */
-                /*     if ( str.Length > 0 ) */
-                /*         MessageBox.Show(str); */
-                /* } */
                 LoadInfo(MType);
                 MakeImage();
             }
@@ -66,6 +61,7 @@ namespace MML
         {
             switch ( Meme )
             {
+                #region DefaultSecond
                 case "LD":
                     URL = BaseURL + "LD.jpg";
                     if ( strArray.Length < 2 )
@@ -76,14 +72,23 @@ namespace MML
                         MessageBox.Show("String set");
                     }
                     return;
+                #endregion
+                #region DefaultFirst
                 case "ODNS":
                     URL = BaseURL + "ODNS.jpg";
                     if (strArray[0].Length ==0)
                         strArray[0] = "One does not simply";
                     return;
+                #endregion
+                #region NoDefault
+                case "FWP":
+                    URL = BaseURL + "FWP.jpg";
+                    return;
+                #endregion
                 default:
                     MessageBox.Show("Invalid Meme");
                     return;
+                
             }
         }
 
@@ -99,7 +104,6 @@ namespace MML
             }
             catch
             {
-                MessageBox.Show("It fuck up");
             }
             g.Save();
             PB.Image = img;
@@ -111,7 +115,7 @@ namespace MML
             PB.Size = new Size(this.Size.Width-20, this.Size.Height-20);
         }
 
-        private void btnCBPaste_Click(object sender, EventArgs e)	// Replace with right click menu
+        private void btnCBPaste_Click(object sender, EventArgs e)	// ? Replace with right click menu
         {
             tbInput.Text = Clipboard.GetText();
         }
@@ -121,10 +125,17 @@ namespace MML
             if ( e.Button == System.Windows.Forms.MouseButtons.Right )
             {
                 SaveFileDialog SFD = new SaveFileDialog();
+                SFD.Filter = "JPG|*.jpg|All|*.*";       // Text to show | Search term (Search term automatically added to \1)
                 SFD.ShowDialog();
                 string path = SFD.FileName.ToString();
-                MessageBox.Show(path);
-                PB.Image.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                // MessageBox.Show(path);
+                try
+                {
+                    PB.Image.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                catch
+                {
+                }
             }
         }
         #endregion
