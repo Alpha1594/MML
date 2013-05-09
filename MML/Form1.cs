@@ -18,7 +18,7 @@ namespace MML
 
         public string Raw;
         public string MType;
-        public static string[] strArray = {" "," "," "};
+        public static string[] strArray = new string[3];
         public const string BaseURL = @"C:\Users\A.2\Documents\My Dropbox\Photos\meme\";
         public string URL;
 
@@ -41,16 +41,14 @@ namespace MML
             int FirstDelimiterIndex = Validator();
             if ( FirstDelimiterIndex != -1 )
             {
-                MType = tbInput.Text.Substring(0, FirstDelimiterIndex);
-                
-                Raw = tbInput.Text.Substring(1 + FirstDelimiterIndex);
-
-                strArray = Raw.Split("|".ToCharArray());
-                foreach ( string str in strArray )
-                {
-                    if ( str.Length > 0 )
-                        MessageBox.Show(str);
-                }
+                MType = tbInput.Text.Substring(0, FirstDelimiterIndex);		// The Meme
+                Raw = tbInput.Text.Substring(1 + FirstDelimiterIndex);		// The captions
+                strArray = Raw.Split("|".ToCharArray());					// Text written to array.
+                /* foreach ( string str in strArray ) */
+                /* { */
+                /*     if ( str.Length > 0 ) */
+                /*         MessageBox.Show(str); */
+                /* } */
                 LoadInfo(MType);
                 MakeImage();
             }
@@ -70,10 +68,12 @@ namespace MML
             {
                 case "LD":
                     URL = BaseURL + "LD.jpg";
-                    if ( strArray.Length < 1 )
+                    if ( strArray.Length < 2 )
                     {
-                        strArray[1] = "I also like to live dangerously"; // TODO resolve this. It does not work
-                        MessageBox.Show("Streing set");
+                        Array.Resize(ref strArray, 2);
+							// http://stackoverflow.com/questions/9570944/adding-elements-to-a-c-sharp-array?lq=1
+                        strArray[1] = "I also like to live dangerously";
+                        MessageBox.Show("String set");
                     }
                     return;
                 case "ODNS":
@@ -93,8 +93,6 @@ namespace MML
             Graphics g = Graphics.FromImage(img);
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             g.DrawString(strArray[0], new Font("Consolas", 40), Brushes.LimeGreen, new Point(20, 10));
-            //if (strArray.Length >0)
-            //    g.DrawString(strArray[1], new Font("Consolas", 40), Brushes.Magenta, new Point(20, img.Size.Height - 100));
             try
             {
                 g.DrawString(strArray[1], new Font("Consolas", 40), Brushes.Magenta, new Point(20, img.Size.Height - 100));
@@ -113,7 +111,7 @@ namespace MML
             PB.Size = new Size(this.Size.Width-20, this.Size.Height-20);
         }
 
-        private void btnCBPaste_Click(object sender, EventArgs e)
+        private void btnCBPaste_Click(object sender, EventArgs e)	// Replace with right click menu
         {
             tbInput.Text = Clipboard.GetText();
         }
@@ -126,7 +124,6 @@ namespace MML
                 SFD.ShowDialog();
                 string path = SFD.FileName.ToString();
                 MessageBox.Show(path);
-
                 PB.Image.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
         }
