@@ -111,21 +111,25 @@ namespace MML
 
         #region EventHandlers
         private void Form1_SizeChanged(object sender, EventArgs e)
+        	// RM & make : Form size set by img size.
         {
             PB.Size = new Size(this.Size.Width-20, this.Size.Height-20);
         }
 
-        private void btnCBPaste_Click(object sender, EventArgs e)	// ? Replace with right click menu
+        private void btnCBPaste_Click(object sender, EventArgs e)
+        	// PasteButton :s with a right-click on textbox (if blank)
         {
             tbInput.Text = Clipboard.GetText();
         }
 
         private void PB_MouseClick(object sender, MouseEventArgs e)
+        	// Right-click to save image.
         {
             if ( e.Button == System.Windows.Forms.MouseButtons.Right )
             {
                 SaveFileDialog SFD = new SaveFileDialog();
                 SFD.Filter = "JPG|*.jpg|All|*.*";       // Text to show | Search term (Search term automatically added to \1)
+				// Set a default start file location.
                 SFD.ShowDialog();
                 string path = SFD.FileName.ToString();
                 // MessageBox.Show(path);
